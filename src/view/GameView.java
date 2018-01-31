@@ -144,8 +144,8 @@ public class GameView {
     	car.setHeight(20);
     	car.setFill(Color.BEIGE);
     	
-    	Rotate r = new Rotate(rotation, posCar.getX(), posCar.getY());
-    	car.graphicsContext.setTransform(r.getMxx(), r.getMyx(), r.getMxy(), r.getMyy(), r.getTx(), r.getTy());
+//    	Rotate r = new Rotate(rotation, posCar.getX(), posCar.getY());
+    	car.setRotate(rotation);
     	
         
     }

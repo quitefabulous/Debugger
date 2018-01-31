@@ -17,11 +17,11 @@ public class Car {
 	double airDensity;
 	double accelerate = 111;
 	long timeGone;
-	private Rectangle collissionMask;
+	private Rectangle carCollissionMask = new Rectangle(0,0, 42.55, 20.27);
 	Point2D posCar = new Point2D (200,300);
-	
-	public Rectangle getCollissionMask() {
-		return collissionMask;
+
+	public double getSpeed() {
+		return speed;
 	}
 	
 	public double getRotation() {
@@ -93,5 +93,11 @@ public class Car {
 		return density;
 		
 	}
+	
+	
+	public Rectangle getCollisionMask() {
+		return carCollissionMask;
+	}
+	
 	
 }
