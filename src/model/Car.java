@@ -84,7 +84,6 @@ public class Car {
 		double face = 2.19;
 		double air = 1.2041;
 		density = dragCoefficient * face * (air/2) * (speed * speed);
-		System.out.println(density +" ");
 		return density;
 		
 	}
