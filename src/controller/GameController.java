@@ -53,17 +53,23 @@ public class GameController {
 				case "UP":
 					doAccelerate = true;
 					newCar.straightAcc();
+					System.out.println("UP");
 					break;
 				case "LEFT":
 					doAccelerate = true;
 					newCar.leftAcc();
+					System.out.println("Left");
 					break;
 				case "RIGHT":
 					doAccelerate = true;
 					newCar.rightAcc();
+					System.out.println("Right");
+					break;
 				case "DOWN" :
 					doAccelerate = true;
 					newCar.backAcc();
+					System.out.println("DOWN");
+					break;
 				default:
 					break;
 				}

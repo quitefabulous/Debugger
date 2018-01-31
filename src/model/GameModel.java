@@ -27,7 +27,7 @@ public class GameModel {
     	gameState = GameState.START_SCREEN;
         //initialize Car, default data in GameView
         car = initializeCar();
-        
+        gameState = GameState.RUNNING;
         gameAreaCollissionMask = new Rectangle(0,0,GAME_WIDTH, GAME_HEIGHT);
         
     }
