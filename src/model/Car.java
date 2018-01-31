@@ -36,8 +36,8 @@ public class Car {
 // Ab hier folgen Methoden die zur Berechnung der Bewegung benutzt werden
 
 //	
-	public void straightAcc() {
-		posCar = posCar.add(speed * Math.cos(Math.toRadians(rotation)), speed * Math.sin(Math.toRadians(rotation)));
+	public void straightAcc(double time) {
+		posCar = posCar.add(speed * Math.cos(Math.toRadians(rotation))*time, speed * Math.sin(Math.toRadians(rotation))*time);
 	}
 	
 	public void leftAcc() {
@@ -48,13 +48,14 @@ public class Car {
 		rotation = rotation + rotationSteps;
 	}
 	
-	public void backAcc() {
-		posCar = posCar.add(speed * Math.cos(Math.toRadians(rotation)), speed * Math.sin(Math.toRadians(rotation)));
+	public void backAcc(double time) {
+		posCar = posCar.add(speed * Math.cos(Math.toRadians(rotation))*time, speed * Math.sin(Math.toRadians(rotation)*time)).multiply(-1);
 		
 	}
 	
-	public void roll() { {
-		speed = speed -calcFriction() - calcAirDensity(speed);
+	public void roll(double time) { {
+		double accelerateRoll = -calcFriction() - calcAirDensity(speed);
+		speed = speed + accelerateRoll* time;
 		posCar = posCar.add(speed * Math.cos(Math.toRadians(rotation)), speed * Math.sin(Math.toRadians(rotation)));
 		}
 	}

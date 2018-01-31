@@ -34,7 +34,7 @@ public class GameController {
     		newCar.calcFriction();
     		newCar.calcSpeed(timeDifferenceInSeconds);
     	} else if (doAccelerate == false && speed > 0  ){
-    		newCar.roll();
+    		newCar.roll(timeDifferenceInSeconds);
     	}
  	}
     
@@ -57,22 +57,20 @@ public class GameController {
 				switch (code) {
 				case "UP":
 					doAccelerate = true;
-					newCar.straightAcc();
+					newCar.straightAcc(timeDifferenceInSeconds);
 					System.out.println("UP");
 					break;
 				case "LEFT":
-					doAccelerate = true;
 					newCar.leftAcc();
 					System.out.println("Left");
 					break;
 				case "RIGHT":
-					doAccelerate = true;
 					newCar.rightAcc();
 					System.out.println("Right");
 					break;
 				case "DOWN" :
 					doAccelerate = true;
-					newCar.backAcc();
+					newCar.backAcc(timeDifferenceInSeconds);
 					System.out.println("DOWN");
 					break;
 				default:
