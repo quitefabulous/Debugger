@@ -26,6 +26,8 @@ public class GameController {
 
     public void updateContinuously(double timeDifferenceInSeconds) {
     	Car newCar = gameModel.getCar();
+    	
+    	gameView.drawCar(newCar);
     	if(doAccelerate == true) {
     		newCar.calcAirDensity(timeDifferenceInSeconds);
     		newCar.calcFriction();

@@ -2,6 +2,7 @@ package view;
 
 import javafx.application.*;
 import javafx.scene.Scene;
+import javafx.scene.canvas.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -10,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.*;
+import javafx.scene.transform.*;
 import javafx.stage.Stage;
 import model.Car;
 import javafx.event.ActionEvent;
@@ -21,7 +23,6 @@ import javafx.geometry.Point2D;
  */
 public class GameView {
 
-	Car newCar = new Car();
 	Rectangle car = new Rectangle();
     //The scene where all is stacked up
     private Scene scene;
@@ -134,13 +135,17 @@ public class GameView {
         
     }
     
-    public void drawCar() {
+    public void drawCar(Car newCar) {
     	Point2D posCar = newCar.getPosCar();
+    	double rotation = newCar.getRotation();
     	car.setX(posCar.getX());
-    	car.setY(posCar.getX());
+    	car.setY(posCar.getY());
     	car.setWidth(42);
     	car.setHeight(20);
     	car.setFill(Color.BEIGE);
+    	
+    	Rotate r = new Rotate(rotation, posCar.getX(), posCar.getY());
+    	car.graphicsContext.setTransform(r.getMxx(), r.getMyx(), r.getMxy(), r.getMyy(), r.getTx(), r.getTy());
     	
         
     }

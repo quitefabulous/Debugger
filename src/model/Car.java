@@ -3,7 +3,7 @@ package model;
 import controller.GameController;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Rectangle;
-
+import javafx.scene.canvas.*;
 /**
  * Class car represents the race-car in the race game.
  */
@@ -24,6 +24,9 @@ public class Car {
 		return collissionMask;
 	}
 	
+	public double getRotation() {
+		return rotation;
+	}
 	
 	public Point2D getPosCar() {
 		return posCar;
