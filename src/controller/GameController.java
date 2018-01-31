@@ -26,12 +26,15 @@ public class GameController {
 
     public void updateContinuously(double timeDifferenceInSeconds) {
     	Car newCar = gameModel.getCar();
+    	double speed = newCar.getSpeed();
     	
     	gameView.drawCar(newCar);
     	if(doAccelerate == true) {
     		newCar.calcAirDensity(timeDifferenceInSeconds);
     		newCar.calcFriction();
     		newCar.calcSpeed(timeDifferenceInSeconds);
+    	} else if (doAccelerate == false && speed > 0  ){
+    		newCar.roll();
     	}
  	}
     

@@ -4,6 +4,7 @@ import controller.GameController;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.canvas.*;
+import java.util.*;
 /**
  * Class car represents the race-car in the race game.
  */
@@ -11,7 +12,8 @@ public class Car {
 	final double CAR_LENGTH = 42.55;
 	final double CAR_WIDTH = 20.27;
 	final double CAR_WEIGHT = 1615;
-	double rotation;
+	double rotation = 90;
+	double rotationSteps = 3.5;
 	double speed = 0;
 	boolean totalLoss;
 	double airDensity;
@@ -35,27 +37,28 @@ public class Car {
 
 //	
 	public void straightAcc() {
-		posCar = posCar.add(speed, 0);
+		posCar = posCar.add(speed * Math.cos(Math.toRadians(rotation)), speed * Math.sin(Math.toRadians(rotation)));
 	}
 	
 	public void leftAcc() {
-		posCar = posCar.add(speed, -speed);
+		rotation = rotation - rotationSteps;
 	}
 	
 	public void rightAcc() { 
-		posCar = posCar.add(speed, speed);
+		rotation = rotation + rotationSteps;
 	}
 	
 	public void backAcc() {
-		posCar = posCar.add(-speed, 0);
+		posCar = posCar.add(speed * Math.cos(Math.toRadians(rotation)), speed * Math.sin(Math.toRadians(rotation)));
 		
+	}
+	
+	public void roll() { {
+		speed = speed -calcFriction() - calcAirDensity(speed);
+		posCar = posCar.add(speed * Math.cos(Math.toRadians(rotation)), speed * Math.sin(Math.toRadians(rotation)));
+		}
 	}
 
-// Berechnung der Rotation
-	public void rotate() {
-		rotation = 90.0;
-		
-	}
 	
 	public double calcSpeed(double time) {
 		

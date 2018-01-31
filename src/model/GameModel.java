@@ -52,24 +52,25 @@ public class GameModel {
     }
        
     
-    private void checkCollision() {
-		Rectangle carCollisionMask = car.getCollisionMask();
-		Rectangle obstacleCollissionMask = subsoil.getObstacleCollissionMask();
-		boolean crash = false;
-		boolean fatalCrash = false;
-		
-		if(!carCollisionMask.getBoundsInParent().intersects(gameAreaCollissionMask.getBoundsInLocal())){
-			crash = true;
-		} else if (carCollisionMask.getBoundsInLocal().intersects(obstacleCollissionMask.getBoundsInLocal())){
-			if(car.getSpeed() >= CRASH_SPEED_LIMIT){
-				fatalCrash = true;
-			} else {
-				System.out.println("Finish");
-				gameState = GameState.SHOW_SCORE;
-			}
-		
-			if(crash = true){
-			gameState = GameState.GAME_OVER;
-		}
-	}
+//    private void checkCollision() {
+//		Rectangle carCollisionMask = car.getCollisionMask();
+//		Rectangle obstacleCollissionMask = subsoil.getObstacleCollissionMask();
+//		boolean crash = false;
+//		boolean fatalCrash = false;
+//		
+//		if(!carCollisionMask.getBoundsInParent().intersects(gameAreaCollissionMask.getBoundsInLocal())){
+//			crash = true;
+//		} else if (carCollisionMask.getBoundsInLocal().intersects(obstacleCollissionMask.getBoundsInLocal())){
+//			if(car.getSpeed() >= CRASH_SPEED_LIMIT){
+//				fatalCrash = true;
+//			} else {
+//				System.out.println("Finish");
+//				gameState = GameState.SHOW_SCORE;
+//			}
+//		
+//			if(fatalCrash = true){
+//			gameState = GameState.GAME_OVER;
+//		}
+//	}
+//}
 }
