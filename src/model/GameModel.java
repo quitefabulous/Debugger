@@ -16,6 +16,7 @@ public class GameModel {
     public static final int GAME_WIDTH = 1300;
     public static final int GAME_HEIGHT = 800;
     private Rectangle gameAreaCollissionMask;
+    private Rectangle carCollissionMask;
     
     public Car getCar() {
     	return car; 
@@ -29,6 +30,7 @@ public class GameModel {
         car = initializeCar();
         gameState = GameState.RUNNING;
         gameAreaCollissionMask = new Rectangle(0,0,GAME_WIDTH, GAME_HEIGHT);
+        carCollissionMask = new Rectangle(0,0, 42.55, 20.27);
         
     }
 
@@ -58,10 +60,11 @@ public class GameModel {
 //    private void checkCollision() {
 //		Rectangle landerCollisionMask = lander.getCollisionMask();
 //		boolean crash = false;
+//		boolean fatalCrash = false;
 //		
-//		if(!landerCollisionMask.getBoundsInParent().intersects(gameAreaCollisionMask.getBoundsInLocal())){
+//		if(!carCollissionMask.getBoundsInParent().intersects(gameAreaCollisionMask.getBoundsInLocal())){
 //			crash = true;
-//		} else if (landerCollisionMask.getBoundsInLocal().intersects(groundCollisionMask.getBoundsInLocal())){
+//		} else if (carCollisionMask.getBoundsInLocal().intersects(groundCollisionMask.getBoundsInLocal())){
 //			if(lander.getSpeed().magnitude() > CRASH_SPEED_LIMIT || lander.getTiltAngle() > CRASH_TILT_LIMIT){
 //				System.out.println("Crash Ground");
 //				crash = true;
@@ -72,14 +75,13 @@ public class GameModel {
 //		}
 //		
 //		for (Triangle obstacle: obstacles) {
-//			if(Shape.intersect((Shape)obstacle.getCollisionMask(), (Shape)landerCollisionMask).getBoundsInLocal().getWidth() != -1.0){
+//			if(Shape.intersect((Shape)obstacle.getCollisionMask(), (Shape)carCollisionMask).getBoundsInLocal().getWidth() != -1.0){
 //				System.out.println("Crashed into Obstacle: " + obstacle.getCollisionMask());
 //				crash = true;
 //			}
 //		}	
 //		
-//		if(crash){
-//			lander.setThrustLevel(0);
+//		if(crash = true){
 //			gameState = GameState.GAME_OVER;
 //		}
 //	}

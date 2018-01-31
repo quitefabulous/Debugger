@@ -11,6 +11,7 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;
+import model.Car;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
@@ -20,12 +21,13 @@ import javafx.geometry.Point2D;
  */
 public class GameView {
 
+	Car newCar = new Car();
+	Rectangle car = new Rectangle();
     //The scene where all is stacked up
     private Scene scene;
 
     //Stackpane, where all dialogs are stacked
     private StackPane rootPane;
-
     private Pane gamePane;
     public Scene getScene() {
         return scene;
@@ -103,7 +105,7 @@ public class GameView {
         gamePane = new BorderPane();
 
         
-        //Ellipse auen: x=550, y = 350
+        //Ellipse aussen: x=550, y = 350
         //Ellipse innen: x = 450 , y = 250
         //draw elipse
         Ellipse outerEllipse = new Ellipse();
@@ -120,15 +122,9 @@ public class GameView {
         innerEllipse.setRadiusY(250.0f);
         innerEllipse.setFill(Color.WHITE);
         
-    	double carX = 500;  //Point2D.class.getX(positionCar);
-    	double carY = 200;   //Point2D.class.getY(positionCar);
+
     	
-    	Rectangle car = new Rectangle();
-    	car.setX(carX);
-    	car.setY(carY);
-    	car.setWidth(42);
-    	car.setHeight(20);
-    	car.setFill(Color.BEIGE);
+;
 
         rootPane.getChildren().add(gamePane);
         gamePane.getChildren().add(outerEllipse);
@@ -138,6 +134,16 @@ public class GameView {
         
     }
     
+    public void drawCar() {
+    	Point2D posCar = newCar.getPosCar();
+    	car.setX(posCar.getX());
+    	car.setY(posCar.getX());
+    	car.setWidth(42);
+    	car.setHeight(20);
+    	car.setFill(Color.BEIGE);
+    	
+        
+    }
     
 
 }

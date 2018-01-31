@@ -11,7 +11,7 @@ public class Car {
 	final double CAR_LENGTH = 42.55;
 	final double CAR_WIDTH = 20.27;
 	final double CAR_WEIGHT = 1615;
-	double roation;
+	double rotation;
 	double speed = 0;
 	boolean totalLoss;
 	double airDensity;
@@ -25,29 +25,32 @@ public class Car {
 	}
 	
 	
+	public Point2D getPosCar() {
+		return posCar;
+	}
 // Ab hier folgen Methoden die zur Berechnung der Bewegung benutzt werden
 
 //	
 	public void straightAcc() {
-		posCar.add(speed, 0);
+		posCar = posCar.add(speed, 0);
 	}
 	
 	public void leftAcc() {
-		posCar.add(speed, -speed);
+		posCar = posCar.add(speed, -speed);
 	}
 	
 	public void rightAcc() { 
-		posCar.add(speed, speed);
+		posCar = posCar.add(speed, speed);
 	}
 	
 	public void backAcc() {
-		posCar.add(-speed, 0);
+		posCar = posCar.add(-speed, 0);
 		
 	}
 
-
 // Berechnung der Rotation
 	public void rotate() {
+		rotation = 90.0;
 		
 	}
 	
